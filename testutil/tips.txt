@@ -1,0 +1,8 @@
+- Bug: pyparsing version is incompatible with python version:
+    After running `pip install -e .`, one can not import `matplotlib`. This is because `matplotlib` uses `pyparsing`, and `pyparsing 3.x` has a change of api which causes it to fail in evaluating the version_info class for Python 3.6.
+    (source: https://stackoverflow.com/questions/69964466/unknown-version-in-python-library-pyparsing)
+
+    To solve this, reinstall pyparsing 2.4.7. 
+
+- Bug: sklearn and scikit-learn
+    package netshare requires sklearn in setup.py. However, it should require scikit-learn instead of sklearn because sklearn is the dummpy package of scikit-learn on pypi. Directly installing using setup.py and pip install . will install the dummy package sklearn insteead of the real package scikit-learn.
