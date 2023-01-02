@@ -32,8 +32,9 @@ conda activate $VIRTUAL_ENV
 # If already cloned
 if ! [ -d $NETSHARE_LOCAL_REPO]
 then
-    echo "git clone from remote repo..."
-    git clone https://github.com/netsharecmu/NetShare.git $NETSHARE_LOCAL_REPO
+    echo "git clone from xinyu's fork of remote repo..."
+#     git clone https://github.com/netsharecmu/NetShare.git $NETSHARE_LOCAL_REPO
+    git clone https://github.com/Xinyu-Li-123/NetShare.git $NETSHARE_LOCAL_REPO
 else
     echo "$NETSHARE_LOCAL_REPO exists! Skip git clone..."
 fi

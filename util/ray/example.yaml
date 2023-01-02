@@ -19,7 +19,7 @@ provider:
 
 # How Ray will authenticate with newly launched nodes.
 auth:
-    ssh_user: yyucheng
+    ssh_user: xinyu
     # You can comment out `ssh_private_key` if the following machines don't need a private key for SSH access to the Ray
     # cluster:
     #   (1) The machine on which `ray up` is executed.
@@ -118,7 +118,7 @@ head_start_ray_commands:
   # If we have e.g. conda dependencies, we could create on each node a conda environment (see `setup_commands` section).
   # In that case we'd have to activate that env on each node before running `ray`:
   - conda activate NetShare && export LC_ALL=C.UTF-8 && ray stop
-  - conda activate NetShare && export LC_ALL=C.UTF-8 && ulimit -c unlimited && ray start --head --port=6379 --autoscaling-config=~/ray_bootstrap_config.yaml --include-dashboard=True --dashboard-host=0.0.0.0 --dashboard-port=8265 --temp-dir=/users/yyucheng/tmp
+  - conda activate NetShare && export LC_ALL=C.UTF-8 && ulimit -c unlimited && ray start --head --port=6379 --autoscaling-config=~/ray_bootstrap_config.yaml --include-dashboard=True --dashboard-host=0.0.0.0 --dashboard-port=8265 --temp-dir=/users/xinyu/tmp
   # --system-config="{\"kill_idle_workers_interval_ms\":10}"
     # - ray stop
     # - ulimit -c unlimited && ray start --head --port=6379 --autoscaling-config=~/ray_bootstrap_config.yaml

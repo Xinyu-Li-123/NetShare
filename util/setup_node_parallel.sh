@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USER=yyucheng
+USER=xinyu
 NUMHOSTS=21
 EXPERIMENTNAME=netshare-wisc
 PROJECTNAME=cloudmigration-pg0
