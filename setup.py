@@ -18,12 +18,13 @@ setup(
     long_description_content_type='text/markdown',
     packages=find_packages(),
     install_requires=[
+        "pyparsing==2.4.7",     # pyparsing of higher version is incompatible with python3.6
         "tensorflow==1.15",
         "tensorflow-privacy==0.5.0",
         "tqdm",
         "matplotlib",
         "pandas",
-        "sklearn",
+        "scikit-learn",
         "more-itertools",
         "gensim==3.8.3",
         "networkx",
@@ -51,5 +52,6 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",
-    ]
+    ],
+    python_requires='>=3.6.1'
 )

@@ -6,3 +6,6 @@
 
 - Bug: sklearn and scikit-learn
     package netshare requires sklearn in setup.py. However, it should require scikit-learn instead of sklearn because sklearn is the dummpy package of scikit-learn on pypi. Directly installing using setup.py and pip install . will install the dummy package sklearn insteead of the real package scikit-learn.
+
+- Bug: TypeError: __new__() missing 1 required positional argument: ‘exemplar‘
+    This error occurs when the environment uses python version 3.6.0. Upgrade to 3.6.1 will fix this problem.
