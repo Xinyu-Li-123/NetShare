@@ -41,7 +41,7 @@ We recommend installing NetShare in a virtual environment (e.g., Anaconda3). We 
 ```Bash
 # Assume Anaconda is installed
 # Create virtual environment if not exists
-conda create --name NetShare python=3.6
+conda create --name NetShare python=3.6.1
 
 # Activate virtual env
 conda activate NetShare

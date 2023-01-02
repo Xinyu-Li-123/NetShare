@@ -22,7 +22,7 @@ conda init
 if ! { conda env list | grep $VIRTUAL_ENV; } >/dev/null 2>&1
 then
     echo "Conda environment $VIRTUAL_ENV not installed."
-    conda create -y --name $VIRTUAL_ENV python=3.6
+    conda create -y --name $VIRTUAL_ENV python=3.6.1
 else
     echo "Conda environment $VIRTUAL_ENV installed."
 fi
