@@ -3,7 +3,7 @@
 		"overwrite": true,
         "original_data_file": "../traces/testpcap/testpcap.pcap",
         "dataset_type": "pcap",
-        "n_chunks": 10,
+        "n_chunks": 2,
         "dp": false
     },
 	"model": {
@@ -11,7 +11,7 @@
 			"sample_len": [
 				10
 			],
-			"iteration": 80,
+			"iteration": 4,
 			"vis_freq": 100,
 			"g_lr": 0.001,
 			"d_lr": 0.001,
@@ -24,7 +24,9 @@
 			"attr_d_lr": 0.001,
 			"attr_disc_num_layers": 2,
 			"attr_disc_num_units": 64,
-            "num_cores": 4
+            "num_cores": 4,
+            "extra_checkpoint_freq": 2,
+            "epoch_checkpoint_freq": 2
 		}
 	},
     "default": "pcap.json"

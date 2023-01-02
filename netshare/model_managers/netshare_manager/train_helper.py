@@ -21,7 +21,7 @@ def _launch_other_chunks_training(
     for config_idx in config_ids[1:]:
         # sanity check
         if not os.path.exists(configs[config_idx]["pretrain_dir"]):
-            raise ValueError("Pretrain_dir {} does not exist!")
+            raise ValueError("Pretrain_dir {} does not exist!".format(configs[config_idx]["pretrain_dir"]))
         objs.append(
             _launch_one_chunk_training.remote(
                 create_new_model,
@@ -41,7 +41,7 @@ def _launch_all_chunks_training(
     for config_idx in config_ids:
         # sanity check
         if not os.path.exists(configs[config_idx]["pretrain_dir"]):
-            raise ValueError("Pretrain_dir {} does not exist!")
+            raise ValueError("Pretrain_dir {} does not exist!".format(configs[config_idx]["pretrain_dir"]))
         objs.append(
             _launch_one_chunk_training.remote(
                 create_new_model,
