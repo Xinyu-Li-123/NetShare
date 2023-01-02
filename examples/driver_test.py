@@ -3,8 +3,9 @@ from netshare import Generator
 
 if __name__ == '__main__':
     # Change to False if you would not like to use Ray
-    ray.config.enabled = True
-    ray.init(address="auto")
+    ray.config.enabled = False
+    # ray.init(address="auto")
+    # ray.init(address='10.214.96.109:10010')
 
     # configuration file
     # generator = Generator(config="config_example_netflow_nodp.json")
