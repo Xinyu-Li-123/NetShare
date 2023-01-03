@@ -1,0 +1,17 @@
+[x] setup nfs on cloudlab
+
+[x] nfs node can communicate w/ one another with ssh in normal user mode
+
+[ ] automate ssh keygen and authentication
+
+[x] find out the script to allocate space to rootfs
+
+[x] automate conda install and virtual env install on nfs server node
+
+[ ] automate task above on worker nodes
+
+[x] automate traces and test dataset download
+
+[ ] config ray
+
+
