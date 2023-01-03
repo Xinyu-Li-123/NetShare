@@ -9,3 +9,5 @@
 
 - Bug: TypeError: __new__() missing 1 required positional argument: ‘exemplar‘
     This error occurs when the environment uses python version 3.6.0. Upgrade to 3.6.1 will fix this problem.
+
+- Bug: Need manually install CMake using `pip before pip install -e .`
