@@ -11,3 +11,6 @@
     This error occurs when the environment uses python version 3.6.0. Upgrade to 3.6.1 will fix this problem.
 
 - Bug: Need manually install CMake using `pip before pip install -e .`
+
+- Note: Anaconda requires x84_64/x86 architecture. Be careful when choosing cluster.
+
