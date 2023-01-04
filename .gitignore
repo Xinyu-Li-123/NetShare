@@ -43,6 +43,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+cluster_manifest.xml 
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
