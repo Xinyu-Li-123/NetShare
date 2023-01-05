@@ -10,8 +10,8 @@
 			"sample_len": [
 				1
 			],
-			"iteration": 80,
-			"vis_freq": 20,
+			"iteration": 10,
+			"vis_freq": 5,
 			"g_lr": 0.001,
 			"d_lr": 0.001,
 			"gen_feature_num_layers": 1,
@@ -23,9 +23,9 @@
 			"attr_d_lr": 0.001,
 			"attr_disc_num_layers": 2,
 			"attr_disc_num_units": 64,
-            "num_cores": 16,
-            "extra_checkpoint_freq": 20,
-            "epoch_checkpoint_freq": 10
+            "num_cores": 32,
+            "extra_checkpoint_freq": 5,
+            "epoch_checkpoint_freq": 5
 		}
 	},
     "default": "pcap.json"

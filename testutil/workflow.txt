@@ -1,0 +1,11 @@
+- log in nfs server
+
+- clone NetShare to /nfs
+
+- download manifest file from cloudlab cluster and save as `cluster_namifest.py`
+
+- build ssh communication
+	run `python /nfs/NetShare/testtuil/setup-ssh-from-manifest.py`
+
+- install Anaconda and virtual env of NetShare
+	run `python /nfs/NetShare/testutil/setup-env-from-manifest.py`

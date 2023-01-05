@@ -32,7 +32,7 @@ conda activate $VIRTUAL_ENV
 conda install python=3.6.1
 
 # If already cloned
-if ! [ -d $NETSHARE_LOCAL_REPO]
+if ! [ -d $NETSHARE_LOCAL_REPO ]
 then
     echo "git clone from xinyu's fork of remote repo..."
 #     git clone https://github.com/netsharecmu/NetShare.git $NETSHARE_LOCAL_REPO
@@ -48,3 +48,5 @@ ray start --head && ray stop
 cd $NETSHARE_LOCAL_REPO
 pip3 install cmake
 pip3 install -e .
+
+exit
