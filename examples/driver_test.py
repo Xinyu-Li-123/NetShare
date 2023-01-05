@@ -17,6 +17,6 @@ if __name__ == '__main__':
     # if you are using Ray with multi-machine setup
     # since Ray has bugs when dealing with relative paths.
     generator.train_and_generate(
-        work_folder='../results/pcap/testpcap')
+        work_folder='/nfs/NetShare/results/pcap/testpcap')
 
     ray.shutdown()
