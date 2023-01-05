@@ -1,6 +1,6 @@
 {
     "global_config": {
-        "original_data_file": "../traces/testpcap/testpcap.pcap",
+        "original_data_file": "../traces/testpcap/raw.pcap",
         "dataset_type": "pcap",
         "n_chunks": 1,
         "dp": false

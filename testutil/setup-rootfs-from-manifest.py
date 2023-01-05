@@ -34,8 +34,7 @@ for cnode in cluster_nodes:
 	print("Find node {}: host={}, port={}".format(cnode.name, cnode.hostname, cnode.port))
 
 """
-# env_command = """<< EOF\n'bash -s' < sc.sh\nexit\nEOF"""	
-env_command = """'bash -s' < setup-env-script.sh"""	
+env_command = "'bash -s' < setup-env-script.sh"
 handles = []
 for cnode in cluster_nodes:
     handle = subprocess.Popen(
@@ -53,7 +52,8 @@ for handle in handles:
 """
 
 # allocate mroe space to  rootfs for each node
-gfs_command = """'bash -s' < setup-env-script.sh"""	
+gfs_command = """'sudo -n env RESIZEROOT={} bash -s' < setup-rootfs-script.sh"""
+RESIZEROOT=64
 handles = []
 for cnode in cluster_nodes[:3]:
     handle = subprocess.Popen(
@@ -61,10 +61,10 @@ for cnode in cluster_nodes[:3]:
 			port=cnode.port,
 			username=username,
 			hostname=cnode.hostname,
-			command=env_command,
+			command=gfs_command.format(RESIZEROOT),
 		),
-		shell=True)	# wait one after another, just in case
+		shell=True).wait()	# wait one after another, just in case
     handles.append(handle)
 
-for handle in handles:
-    handle.wait()
+# for handle in handles:
+#     handle.wait()

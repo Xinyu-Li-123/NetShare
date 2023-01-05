@@ -9,3 +9,6 @@
 
 - install Anaconda and virtual env of NetShare
 	run `python /nfs/NetShare/testutil/setup-env-from-manifest.py`
+
+- grow rootfs for each node
+	TODO

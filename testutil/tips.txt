@@ -14,3 +14,4 @@
 
 - Note: Anaconda requires x84_64/x86 architecture. Be careful when choosing cluster.
 
+- Bug: Raw data must be named "raw.[csv|pcap]", otherwise data generation will fail

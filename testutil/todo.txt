@@ -2,15 +2,17 @@
 
 [x] nfs node can communicate w/ one another with ssh in normal user mode
 
-[ ] automate ssh keygen and authentication
+[x] automate ssh keygen and authentication
 
-[x] find out the script to allocate space to rootfs
+[ ] for each node, allocate space to rootfs
 
 [x] automate conda install and virtual env install on nfs server node
 
-[ ] automate task above on worker nodes
+[x] automate task above on worker nodes
 
 [x] automate traces and test dataset download
+
+[x] run single machine netshare on one node
 
 [ ] config ray
 
