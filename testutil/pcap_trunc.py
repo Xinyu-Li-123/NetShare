@@ -4,7 +4,7 @@ from scapy.utils import wrpcap
 def pcap_trunc(filepath, max_count=10):
 	trunc_packets = []
 	count = 0
-	for packet in PcapReader("raw.pcap"):
+	for packet in PcapReader(filepath):
 		if count % 10000 == 0:
 			print("Packet read: {:8d}".format(count), end="\r")
 		trunc_packets.append(packet)
@@ -13,9 +13,9 @@ def pcap_trunc(filepath, max_count=10):
 			print("Packet read: {:8d}".format(count), end="\r")
 			break
 	print()
-	wrpcap("testpcap.pcap", trunc_packets)
+	wrpcap("/nfs/NetShare/traces/testpcap/testpcap.pcap", trunc_packets)
 
 
-filepath = "raw.pcap"
+filepath = "/nfs/NetShare/traces/caida/raw.pcap"
 max_count = 1e3
 pcap_trunc(filepath, max_count)
