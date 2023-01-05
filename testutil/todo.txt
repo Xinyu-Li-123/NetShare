@@ -4,7 +4,7 @@
 
 [x] automate ssh keygen and authentication
 
-[ ] for each node, allocate space to rootfs
+[x] for each node, allocate space to rootfs
 
 [x] automate conda install and virtual env install on nfs server node
 

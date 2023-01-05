@@ -55,16 +55,16 @@ for handle in handles:
 gfs_command = """'sudo -n env RESIZEROOT={} bash -s' < setup-rootfs-script.sh"""
 RESIZEROOT=64
 handles = []
-for cnode in cluster_nodes[:3]:
+for cnode in cluster_nodes:
     handle = subprocess.Popen(
-		"ssh -oStrictHostKeyChecking=no -tt -p {port} {username}@{hostname} {command}".format(
+		"ssh -oStrictHostKeyChecking=no -p {port} {username}@{hostname} {command}".format(
 			port=cnode.port,
 			username=username,
 			hostname=cnode.hostname,
 			command=gfs_command.format(RESIZEROOT),
 		),
-		shell=True).wait()	# wait one after another, just in case
+		shell=True)	# wait one after another, just in case
     handles.append(handle)
 
-# for handle in handles:
-#     handle.wait()
+for handle in handles:
+    handle.wait()
