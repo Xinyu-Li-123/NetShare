@@ -2,13 +2,16 @@
 
 - clone NetShare to /nfs
 
-- download manifest file from cloudlab cluster and save as `cluster_namifest.py`
+- download manifest file from cloudlab cluster and save as `/nfs/NetShare/testutil/cluster_namifest.py`
 
-- build ssh communication
+- build ssh communication (ssh-keygen, add public keys to authorized_keys)
 	run `python /nfs/NetShare/testtuil/setup-ssh-from-manifest.py`
+
+- grow rootfs for each node
+	run `python /nfs/NetShare/testtuil/setup-rootfs-from-manifest.py`
 
 - install Anaconda and virtual env of NetShare
 	run `python /nfs/NetShare/testutil/setup-env-from-manifest.py`
 
-- grow rootfs for each node
-	TODO
+- download traces from google drive
+	run `python /nfs/NetSHare/testutil/get_traces.py`

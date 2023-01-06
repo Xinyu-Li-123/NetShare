@@ -15,5 +15,5 @@
 [x] run single machine netshare on one node
 
 [ ] config ray
-
+	Ray fails when loading from example.yaml using ip address 10.10.1.0/24. It may succeed using the *real* ip address or host name.
 

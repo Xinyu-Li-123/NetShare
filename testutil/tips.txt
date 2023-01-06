@@ -15,3 +15,10 @@
 - Note: Anaconda requires x84_64/x86 architecture. Be careful when choosing cluster.
 
 - Bug: Raw data must be named "raw.[csv|pcap]", otherwise data generation will fail
+
+- Note: 
+	1. To create a ray cluster, run 
+		`ray up <config_file>`
+	2. To destroy a ray cluster, run
+		'ray stop'	# at head node, stop head node
+		'ray down <config_file>'	# at head node, stop worker nodes

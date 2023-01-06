@@ -12,6 +12,9 @@ from netshare.dashboard.dist_metrics import run_netflow_qualitative_plots_dashbo
 from config_io import Config
 from ..configs import default as default_configs
 
+import tensorflow as tf
+
+tf.logging.set_verbosity(tf.logging.ERROR)
 
 class Generator(object):
     def __init__(self, config):
