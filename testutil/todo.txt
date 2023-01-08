@@ -17,3 +17,32 @@
 [ ] config ray
 	Ray fails when loading from example.yaml using ip address 10.10.1.0/24. It may succeed using the *real* ip address or host name.
 
+[ ] set config to save less checkpoint
+
+    A iter 40 model has a fucking 230G checkpoint. Are you kidding me
+
+    The reason is:
+        For every sample_len, every chunk, every total_iter/ckpt_freq, a 3~4G copy of parameter is saved.
+        
+        The default config 
+        -   sample_lens = [1, 5, 10, 25, 50, 100]
+        -   chunk_num = 10
+        -   total_iter = 80000, ckpt_freq = 1000 => total_iter/ckpt_freq = 80
+
+        => 6 * 10 * 80 * 3G = 14400G
+
+[ ] so f**king slow!!!
+    
+    Try:
+    -   smaller batch size (16)
+    
+    32, 100: 12 s/it
+    16: 6 s/it
+
+    -   smaller dataset
+
+    -   less iteration 
+
+    -   use float16 or mixed percision (16 & 32)?
+
+    -   more chunks b/c each chunk uses less data)

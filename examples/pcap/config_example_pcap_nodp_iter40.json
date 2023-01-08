@@ -1,16 +1,19 @@
 {
     "global_config": {
-        "original_data_file": "../traces/caida/raw.pcap",
+        "overwrite": true,
+        "original_data_file": "../traces/dc/raw.pcap",
         "dataset_type": "pcap",
-        "n_chunks": 10,
+        "n_chunks": 18,
         "dp": false
     },
 	"model": {
 		"class": "DoppelGANgerTFModel",
 		"config": {
+            "batch_size": 16,
+            "sample_len": [5],
 			"iteration": 40,
-			"extra_checkpoint_freq": 10,
-			"epoch_checkpoint_freq": 5
+			"extra_checkpoint_freq": 20,
+			"epoch_checkpoint_freq": 20
         }
 	},
     "default": "pcap.json"
