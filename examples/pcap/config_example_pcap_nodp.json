@@ -5,6 +5,11 @@
         "n_chunks": 18,
         "dp": false
     },
+    "model_manager": {
+        "config": {
+            "skip_chunk0_train": true
+        }
+    },
 	"model": {
 		"class": "DoppelGANgerTFModel",
 		"config": {
