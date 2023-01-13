@@ -1279,7 +1279,6 @@ class DoppelGANger(object):
             #     self.data_feature.shape[0],
             #     size=(self.batch_size, self.num_packing)
             # )
-
             if global_id > restore_global_id:
                 if (
                     (batch_id + 1) % self.epoch_checkpoint_freq == 0

@@ -6,6 +6,7 @@ from config_io import Config
 
 def _load_config(config_dict, input_train_data_folder, output_model_folder):
     config_pre_expand = Config(config_dict)
+    print(config_dict)
 
     # TODO: add preprocessing logic for DoppelGANger (single-chunk?)
     config_pre_expand["dataset"] = []
@@ -14,6 +15,7 @@ def _load_config(config_dict, input_train_data_folder, output_model_folder):
     for chunk_id in range(config_pre_expand["n_chunks"]):
         dataset_folder = os.path.join(
             input_train_data_folder, f"chunkid-{chunk_id}")
+        print(dataset_folder, os.path.exists(dataset_folder), os.path.isdir(dataset_folder))
         if os.path.exists(dataset_folder) and os.path.isdir(dataset_folder):
             config_pre_expand["dataset"].append(dataset_folder)
             n_valid_chunks += 1
@@ -139,11 +141,14 @@ def _configs2configsgroup(
                     if chunk_id == 0:
                         chunk0_idx = config_id
                         configs[config_id]["restore"] = False
-                        iteration_range = list(
-                            range(
-                                configs[config_id]["extra_checkpoint_freq"]-1,
-                                configs[config_id]["iteration"],
-                                configs[config_id]["extra_checkpoint_freq"]))
+                        # iteration_range = list(
+                        #     range(
+                        #         configs[config_id]["extra_checkpoint_freq"]-1,
+                        #         configs[config_id]["iteration"],
+                        #         configs[config_id]["extra_checkpoint_freq"]))
+                        iteration_range = list(range(
+                            configs[config_id]["iteration"], 
+                        ))
                         iteration_range.reverse()
 
                         pretrain_dir = None
@@ -159,6 +164,7 @@ def _configs2configsgroup(
                                     "iteration_id-{}".format(iteration_id)
                                 )
                                 if os.path.exists(ckpt_dir):
+                                    print(f"path {ckpt_dir} found")
                                     last_iteration_found = True
 
                             if not last_iteration_found:

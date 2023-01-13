@@ -6,9 +6,9 @@ This section will talk about applications that are based on realisism instead of
 
 measure the correctness and impact of novel algorithms
 
+(traffic analysis => application; traffic generation => syn data fidelity)
+
 * Sketching
-
-
 
 * Assumption of structural property (e.g. heavy flow) of workload for time-space tradeoff
 

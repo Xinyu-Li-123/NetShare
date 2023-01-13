@@ -9,7 +9,7 @@ if __name__ == '__main__':
     # configuration file
     # generator = Generator(config="config_example_netflow_nodp.json")
     generator = Generator(
-        config="pcap/config_example_pcap_nodp.json")
+        config="pcap/config_ca.json")
 
     # `work_folder` should not exist o/w an overwrite error will be thrown.
     # Please set the `worker_folder` as *absolute path*
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     # generator.train_and_generate(
     #     work_folder='/nfs/NetShare/results/pcap/dc_iter8000')
     
-    generator.generate(
-        work_folder='/nfs/NetShare/results/pcap/dc_iter8000')
+    generator.train_and_generate(
+        work_folder='/nfs/NetShare/results/pcap/ca_iter8000')
 
     ray.shutdown()

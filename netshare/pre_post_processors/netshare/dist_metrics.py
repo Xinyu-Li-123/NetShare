@@ -331,3 +331,91 @@ def compute_metrics_pcap_v3(raw_df, syn_df):
         raw_flowsize_list, syn_flowsize_list)
 
     return metrics_dict
+
+def compute_metrics_zeeklog_v3(raw_df, syn_df):
+    '''JSD + EMD + ranking'''
+    metrics_dict = {}
+
+    # IP popularity rank
+    for metric in ["srcip", "dstip"]:
+        metrics_dict[metric] = compute_IP_rank_distance(
+            raw_df[metric], syn_df[metric], type="JSD")
+
+    # TV distance for port/protocol
+    for metric in ["srcport", "dstport", "proto"]:
+        metrics_dict[metric] = compute_port_proto_distance(
+            raw_df[metric], syn_df[metric], metric, prstr_raw=True, prstr_syn=True, type="JSD")
+
+    # ts,duration,orig_bytes,resp_bytes,missed_bytes,orig_pkts,
+    # orig_ip_bytes,resp_pkts,resp_ip_bytes
+    for metric in ["ts", "duration", "orig_bytes", "resp_bytes", "missed_bytes",
+                   "orig_pkts", "orig_ip_bytes", "resp_pkts", "resp_ip_bytes"]:
+        if metric == "ts":
+            raw_df = raw_df.sort_values("ts").reset_index()
+            syn_df = syn_df.sort_values("ts").reset_index()
+            raw_list = list(raw_df["ts"] - raw_df["ts"][0])
+            syn_list = list(syn_df["ts"] - syn_df["ts"][0])
+            metrics_dict[metric] = wasserstein_distance(raw_list, syn_list)
+        else:
+            metrics_dict[metric] = wasserstein_distance(
+                list(raw_df[metric]), list(syn_df[metric]))
+
+    # TODO: Important!! How to define the JSD of service and conn_state?
+
+    return metrics_dict
+
+
+def compute_metrics_pcap_diy(raw_df, syn_df):
+    '''JSD + EMD + ranking'''
+    metrics_dict = {}
+
+    # IP popularity rank
+    for metric in ["srcip", "dstip"]:
+        metrics_dict[metric] = compute_IP_rank_distance(
+            raw_df[metric], syn_df[metric], type="JSD")
+
+    # TV distance for port/protocol
+    for metric in ["srcport", "dstport", "proto"]:
+        metrics_dict[metric] = compute_port_proto_distance(
+            raw_df[metric], syn_df[metric], metric, prstr_raw=True, prstr_syn=True, type="JSD")
+
+    # pkt_len
+    for metric in ["pkt_len", "time"]:
+        # if metric == "time":
+        #     label = "pkt_arrivalTime"
+        # else:
+        #     label = metric
+
+        if metric == "time":
+            raw_df = raw_df.sort_values("time").reset_index()
+            syn_df = syn_df.sort_values("time").reset_index()
+            raw_list = list(raw_df["time"] - raw_df["time"][0])
+            syn_list = list(syn_df["time"] - syn_df["time"][0])
+            # metrics_dict[metric] = wasserstein_distance(raw_list, syn_list)
+            metrics_dict[metric] = jsd(raw_list, syn_list, type="continuous")
+        else:
+            # metrics_dict[metric] = wasserstein_distance(
+            #     list(raw_df[metric]), list(syn_df[metric]))
+            metrics_dict[metric] = jsd(
+                list(raw_df[metric]), list(syn_df[metric]), type="discrete")
+    # interarrival time
+    raw_df_time = raw_df.sort_values("time")
+    syn_df_time = syn_df.sort_values("time")
+    # metrics_dict["time interval"] = wasserstein_distance(list(np.diff(raw_df_time["time"])), list(np.diff(syn_df_time["time"])))
+    metrics_dict["time interval"] = jsd(
+            list(np.diff(raw_df_time["time"])), list(np.diff(syn_df_time["time"])), type="continuous")
+
+    # flow size distribution
+    metadata = ["srcip", "dstip", "srcport", "dstport", "proto"]
+    raw_gk = raw_df.groupby(by=metadata)
+    syn_gk = syn_df.groupby(by=metadata)
+
+    
+
+    raw_flowsize_list = list(raw_gk.size().values)
+    syn_flowsize_list = list(syn_gk.size().values)
+    # metrics_dict["flow_size"] = wasserstein_distance(
+    #     raw_flowsize_list, syn_flowsize_list)
+    metrics_dict["flow_size"] = jsd(
+        raw_flowsize_list, syn_flowsize_list, type="discrete")
+    return metrics_dict

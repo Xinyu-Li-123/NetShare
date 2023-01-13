@@ -34,7 +34,7 @@ for cnode in cluster_nodes:
 	print("Find node {}: host={}, port={}".format(cnode.name, cnode.hostname, cnode.port))
 
 """
-# env_command = """<< EOF\n'bash -s' < sc.sh\nexit\nEOF"""	
+# env_command = EOF\n'bash -s' < sc.sh\nexit\nEOF"""	
 env_command = """'bash -s' < setup-env-script.sh"""	
 handles = []
 for cnode in cluster_nodes:
@@ -50,7 +50,6 @@ for cnode in cluster_nodes:
 
 for handle in handles:
     handle.wait()
-"""
 
 # allocate mroe space to  rootfs for each node
 gfs_command = """'bash -s' < setup-env-script.sh"""	

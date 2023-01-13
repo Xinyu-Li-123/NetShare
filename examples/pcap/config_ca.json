@@ -1,6 +1,6 @@
 {
     "global_config": {
-        "original_data_file": "../traces/dc/raw.pcap",
+        "original_data_file": "../traces/ca/raw.pcap",
         "dataset_type": "pcap",
         "n_chunks": 18,
         "dp": false,
@@ -18,7 +18,7 @@
             "sample_len": [5],
 			"iteration": 8000,
 			"epoch_checkpoint_freq": 1999,
-			"extra_checkpoint_freq": 9999999
+			"extra_checkpoint_freq": 1999
         }
 	},
     "default": "pcap.json"

@@ -9,10 +9,13 @@ netshare/dashboard/static/tmp
 
 tests/
 traces/
+pretrain/
 results/
+evaluation/data
 rsync*.sh
 *.pkl
 *.ini
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

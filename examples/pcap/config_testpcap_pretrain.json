@@ -5,13 +5,22 @@
         "n_chunks": 5,
         "dp": false
     },
+    "model_manager": {
+        "class": "NetShareManager",
+        "config": {
+            "pretrain_non_dp": false,
+            "pretrain_non_dp_reduce_time": null,
+            "pretrain_dp": true,
+            "pretrain_dir": "../pretrain/testpcap_pretrain"
+        }
+    },
 	"model": {
 		"config": {
 			"sample_len": [
 				1
 			],
 			"iteration": 10,
-            "extra_checkpoint_freq": 5,
+            "extra_checkpoint_freq": 2,
             "epoch_checkpoint_freq": 100000
 		}
 	},

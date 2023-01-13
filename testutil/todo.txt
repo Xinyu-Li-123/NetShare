@@ -45,4 +45,4 @@
 
     -   use float16 or mixed percision (16 & 32)?
 
-    -   more chunks b/c each chunk uses less data)
+    -   more chunks b/c each chunk uses les data)

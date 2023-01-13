@@ -409,13 +409,18 @@ class DoppelGANgerTFModel(Model):
                 total_generate_num_sample)
 
             last_iteration_found = False
-            iteration_range = list(
-                range(
-                    self._config["extra_checkpoint_freq"] - 1,
-                    self._config["iteration"],
-                    self._config["extra_checkpoint_freq"],
-                )
-            )
+            # iteration_range = list(
+            #     range(
+            #         self._config["extra_checkpoint_freq"] - 1,
+            #         self._config["iteration"],
+            #         self._config["extra_checkpoint_freq"],
+            #     )
+            # )
+
+            # find the last saved checkpoint
+            iteration_range = list(range(
+                self._config["iteration"], 
+            ))
             # reverse list in place
             iteration_range.reverse()
 
