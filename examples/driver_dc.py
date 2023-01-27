@@ -3,14 +3,13 @@ from netshare import Generator
 
 if __name__ == '__main__':
     # Change to False if you would not like to use Ray
-    ray.config.enabled = False
-    # ray.config.enabled = True
-    # ray.init(address="auto")
+    ray.config.enabled = True
+    ray.init(address="auto")
 
     # configuration file
     # generator = Generator(config="config_example_netflow_nodp.json")
     generator = Generator(
-        config="pcap/config_dc_iter40.json")
+        config="pcap/config_dc.json")
 
     # `work_folder` should not exist o/w an overwrite error will be thrown.
     # Please set the `worker_folder` as *absolute path*
@@ -20,6 +19,6 @@ if __name__ == '__main__':
     #     work_folder='/nfs/NetShare/results/pcap/dc_iter8000')
     
     generator.generate(
-        work_folder='/nfs/NetShare/results/pcap/dc_iter40')
+        work_folder='/nfs/NetShare/results/pcap/dc_iter8000')
 
     ray.shutdown()

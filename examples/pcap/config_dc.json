@@ -2,18 +2,23 @@
     "global_config": {
         "original_data_file": "../traces/dc/raw.pcap",
         "dataset_type": "pcap",
-        "n_chunks": 1,
+        "n_chunks": 18,
         "dp": false,
         "overwrite": true
+    },
+    "model_manager": {
+        "config": {
+            "skip_chunk0_train": true
+        }
     },
 	"model": {
 		"class": "DoppelGANgerTFModel",
 		"config": {
-            "batch_size": 2,
+            "batch_size": 16,
             "sample_len": [5],
-			"iteration": 40,
-			"epoch_checkpoint_freq": 10,
-			"extra_checkpoint_freq": 10
+			"iteration": 8000,
+			"epoch_checkpoint_freq": 1999,
+			"extra_checkpoint_freq": 1999
         }
 	},
     "default": "pcap.json"

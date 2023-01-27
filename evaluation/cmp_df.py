@@ -6,6 +6,8 @@ import os
 
 dataset = "dc"
 
+dataset = os.path.join("data", dataset)
+
 raw_df = pd.read_csv(os.path.join(
         dataset, "raw.csv") )
 syn_8000_df = pd.read_csv(os.path.join(
